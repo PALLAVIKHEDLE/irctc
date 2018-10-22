@@ -1,0 +1,345 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="dist/css/bootstrap.css">
+		<link rel="stylesheet" href="dist/fa/fa/css/all.css"/>
+		<link rel="stylesheet" href="fame.css">
+		<script src="dist/js/jquery.min.js"></script>
+		<script src="dist/js/bootstrap.js"></script>
+		<script>
+		
+			function test()
+			{
+			var status=true;
+				var name=document.getElementById("fname").value.trim();
+				if(name=="")
+				{
+					status=false;
+					document.getElementById("fname").style.borderColor="red";
+					document.getElementById("nameerror").innerHTML="invalid Name";
+				}
+				else
+				{
+				    document.getElementById("fname").style.borderColor="";
+					document.getElementById("nameerror").innerHTML="";
+				}
+				
+				
+				//email validation start here
+				filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				var email=document.getElementById("email").value.trim();
+				
+				if((email=="") ||(!filter.test(email)))
+				{
+					status=false;
+					document.getElementById("email").style.borderColor="red";
+					document.getElementById("emailerror").innerHTML="invalid email";
+				}
+				else
+				{
+				    document.getElementById("email").style.borderColor="";
+					document.getElementById("emailerror").innerHTML="";
+				}
+				//mobile validation start
+
+				var mobile=document.getElementById("mobile").value.trim();
+				if((mobile=="")||(mobile.length!=10)||(isNaN(mobile)))
+				{
+					status=false;
+					document.getElementById("mobile").style.borderColor="red";
+					document.getElementById("mobileerror").innerHTML="Enter proper No";
+				}
+				else
+				{
+				    document.getElementById("mobile").style.borderColor="";
+					document.getElementById("mobileerror").innerHTML="";
+				}
+				
+				return status;
+			}
+			function clearpage()
+			{
+					document.getElementById("fname").style.borderColor="";
+					document.getElementById("nameerror").innerHTML="";
+					 document.getElementById("email").style.borderColor="";
+					document.getElementById("emailerror").innerHTML="";
+					document.getElementById("mobile").style.borderColor="";
+					document.getElementById("mobileerror").innerHTML="";
+					
+			}
+		</script>
+		
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12" >
+					<div id="one"></div>
+				</div><!--12 end-->
+			</div><!--row end-->
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="images/logo.png" height="100px" width="100px">
+				</div>
+				<div class="col-sm-8 text-center">
+					<h3 class="one">Indian Railways Catering and Tourism Corporation Ltd.</h3>
+					<h4><q>A Govt Of India Enterprise-Mini Category-I</q></h4>
+				</div><!--8 end-->
+				<div class="col-sm-2">
+					<div class="col-sm-2">
+					<img src="images/rail.png" height="100px" width="100px">
+				</div>
+				</div>
+			</div><!--row end-->
+			<div class="row">
+			<!-- navigation start-->
+	
+		<nav class="navbar navbar-default" id="menu">
+      <div class="container">
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="modal.html" style="background:blue;color:white;">IRCTC</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" style="font-size:19px;">
+            <li><a href="#"style="color:white;"><i class="fa fa-home" style="color:black;"></i>Home</a></li>
+            <li><a href="#" style="color:white;"><i class="fa fa-building" style="color:black;"></i>Oraganzation</a></li>
+            <li><a href="#" style="color:white;"><i class="fa fa-info"style="color:black;"></i>General Information</a></li>
+			 <li><a href="#" style="color:white;"><i class="far fa-chart-bar" style="color:black;"></i>Annual Report</a></li>
+			  <li><a href="#"style="color:white;"><i class="fab fa-product-hunt" style="color:black;"></i>"Products</a></li>
+			  <li><a href="#" style="color:white;"><i class="fa fa-phone"style="color:black;"></i>Contact US</a></li>
+			  <li><a href="#"style="color:white;"><i class="fa fa-info-circle" style="color:black;"></i>About US</a></li>
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"  style="color:white;"data-toggle="modal" data-target="#login">
+			<i class="fa fa-lock" style="color:black;"></i>
+			login</a></li>
+            <li><a href="#"style="color:white;" data-toggle="modal" data-target="#signup">
+			<i class="fa fa-user-plus" style="color:black;"></i>
+			Register</a></li>
+			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+			<!-- navigation end-->
+</div><!--row end-->
+	
+
+	<div class="row">
+	
+		<div class="col-sm-4">
+			 
+		<form action="saveenquiry.php" method="post" onsubmit="return test()" >
+				<table align="center" cellpadding="7" class="table table-bordered">
+					<caption class="text-center" id="e">Enquiry</caption>
+					<tr>
+						<th>Name</th>
+						<td><input type="text" id="fname"><i id="nameerror"></i></td>
+						
+					</tr>
+					<tr>
+						<th>Email</th>
+						<td><input type="text" id="email"><i id="emailerror"></i></td>
+						
+					</tr>
+					<tr>
+						<th>Mobile</th>
+						<td><input type="text" id="mobile"><i id="mobileerror" maxlength="10"></i></td>
+						
+					</tr>
+					
+					<tr>
+						<th colspan="2"  class="text-center">
+							<button type="submit">Send</button>
+							<button type="reset" onclick="clearpage()">Clear</button>
+						</th>
+					</tr>
+				</table>
+			</form>
+	 
+		
+		</div><!--4 end-->
+		 
+		<div class="col-sm-8">
+			<div class="row">
+			<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fa fa-info-circle fa-3x"></i><h3>Railway Enquiry</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end-->
+			<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fas fa-ticket-alt fa-3x"></i><h3>Internet Ticket</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end--><div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fas fa-utensils fa-3x"></i><h3>Catering</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end-->
+			</div><!--row end-->
+
+		</div><!--8 end-->
+		
+	</div><!--row end-->
+	<div class="row">
+		<div class="col-sm-4">
+			<ul class="list-group">
+				<li class="list-group-item" style="background:tomato;"><i class="fa fa-home"></i>Home</li>
+				<li class="list-group-item "><i class="far fa-money-bill-alt"></i>Bill Status</li>
+				<li class="list-group-item "><i class="fas fa-suitcase"></i>Tour Package</li>
+				<li class="list-group-item "><i class="fas fa-train"></i>Train Enquiry</li>
+				<li class="list-group-item "><i class="fas fa-hotel"></i>Budget Hotel</li>
+			</ul>
+		</div><!--4 end-->
+		<div class="col-sm-8">
+		
+			<div class="row">
+			<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fa fa-info-circle fa-3x"></i><h3>Refund Info</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end-->
+			<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fas fa-ticket-alt fa-3x"></i><h3>PNR Status</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end--><div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"></div>
+					<div class="panel panel-body text-center">
+						<i class="fa fa-user-plus fa-3x"></i><h3>Feedback</h3>
+					</div>
+					<div class="panel panel-footer text-center">Read More</div>
+				
+				</div>
+			</div><!--4 end-->
+			</div><!--row end-->
+
+		
+		</div><!--8 end-->
+	</div><!--row end-->
+		<div class="row">
+			<div class="col-sm-12" id="foot">
+				
+			<p><span style="color:red;">@CopyRight</span> 2018 Railway Enquiry|IRCTC|Railway Reservation</p>
+			</div>
+		</div><!--row-->
+	<!-- Modal -->
+<div class="modal fade " id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">User Login</h4>
+      </div>
+	 
+      <div class="modal-body">
+	  
+			<div class="form-group">
+				<label>Email</label>
+				<input type="text" class="form-control input-sm" >
+				
+			
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<input type="password" class="form-control input-sm" >
+				
+			
+			</div>
+		
+      </div><!--modal body end-->
+	  
+      <div class="modal-footer">
+        <center>
+        <button type="submit" class="btn btn-primary">Login</button>
+		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		<hr>
+		<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signup">Register</a>
+		</center>
+      </div>
+    </div>
+  </div>
+</div>
+<!--login end-->
+<!--signup model start-->
+			<div class="modal fade " id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">User Register</h4>
+      </div>
+		
+      <div class="modal-body">
+	  <div class="form-group">
+				<label>Name</label>
+				<input type="text" class="form-control input-sm">
+			
+			</div>
+			<div class="form-group">
+			<label>contact no</label>
+				<input type="text" class="form-control input-sm">
+			
+			</div>
+			<div class="form-group">
+				<label>Email</label>
+				<input type="text" class="form-control input-sm">
+			
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<input type="password" class="form-control input-sm">
+			
+			</div>
+      </div><!--modal body end-->
+      <div class="modal-footer">
+        <center>
+        <button type="button" class="btn btn-primary">Register</button>
+		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		<hr>
+		<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
+		</center>
+      </div>
+    </div>
+  </div>
+</div><!--register end-->
+			
+		
+		</div><!--container end-->
+	</body>
+</html>

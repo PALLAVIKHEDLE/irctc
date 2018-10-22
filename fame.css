@@ -1,0 +1,10 @@
+body{padding:0px;margin:0px;background:skyblue;}
+*{padding:0px;margin:0px;}
+.container{background:white;margin-top:0px;}
+#one{min-height:19px; background-image: linear-gradient(darkblue,skyblue);}
+.one{color:blue; font-size:20px;}
+ nav ul li {background-color:blue;}
+ i{color:red;}
+ #e{color:darkblue;font-size:21px;font-weight:bold; font-family:cursive;
+ font-style:etalic;}
+ #foot{background:black;color:white;font-size:20px;text-align:center;height:32px;}
